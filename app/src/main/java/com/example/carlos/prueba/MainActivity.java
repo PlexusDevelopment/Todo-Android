@@ -1,6 +1,8 @@
-package com.example.hyunjinoh.todoapp;
+package com.example.carlos.prueba;
 
 import android.support.design.widget.TabLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -17,7 +19,7 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
-public class calendarActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -37,7 +39,7 @@ public class calendarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calendar);
+        setContentView(R.layout.activity_main);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -54,13 +56,22 @@ public class calendarActivity extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_calendar, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -79,42 +90,7 @@ public class calendarActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    // aqui va lo borrado
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        public PlaceholderFragment() {
-        }
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.tab1todo, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(R.string.sample);
-            return rootView;
-        }
-    }
-//termina
+    //boorrado
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -128,37 +104,37 @@ public class calendarActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-           // aqui va lo segundo borrado
-            switch (position){
-                case 0:
-                tab1todo Inicio = new tab1todo();
-                return  Inicio;
-                case 1:
-                    tab2todo Calendar = new tab2todo();
-                    return Calendar;
-                    default:
-                        return null;
-            }
+        switch (position){
+            case 0:
+                tab1todo tab1 = new tab1todo();
+                return tab1;
+            case 1:
+                tab2calendar tab2 = new tab2calendar();
+                return tab2;
+
+
+                default:
+                    return null;
+        }
+
         }
 
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 3;
+            return 2;
         }
+
         @Override
-        public CharSequence getPageTitle(int position){
+        public CharSequence getPageTitle (int position){
             switch (position){
                 case 0:
-                    return "Inicio";
-                case 2:
-                    return "Calendar";
+                    return "TODO";
+                case 1:
+                    return "CALENDAR";
 
             }
-                return null;
+            return null;
         }
-
-
-
     }
 }
