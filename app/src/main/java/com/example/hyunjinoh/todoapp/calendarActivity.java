@@ -118,7 +118,7 @@ public class calendarActivity extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_calendar, container, false);
+            View rootView = inflater.inflate(R.layout.tab1todo, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             textView.setText(R.string.sample);
             return rootView;
