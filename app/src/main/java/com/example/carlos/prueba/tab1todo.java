@@ -1,7 +1,8 @@
-package com.example.hyunjinoh.todoapp;
-
+package com.example.carlos.prueba;
 
 import android.support.design.widget.TabLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -18,14 +19,12 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
-public class tab2todo extends Fragment{
-
+public class tab1todo extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.tab2todo, container, false);
+        View rootView = inflater.inflate(R.layout.tab1todo, container, false);
 
         return rootView;
     }
-
 }
